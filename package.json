@@ -11,22 +11,44 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "onCommand:l-yaml.viewTree",
+    "onLanguage:yaml"
   ],
   "main": "./out/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "l-yaml.viewTree",
+        "title": "yaml: View Tree"
       }
     ],
     "menus": {
       "editor/title": [
         {
           "when": "resourceLangId == yaml",
-          "command": "extension.sayHello",
+          "command": "l-yaml.viewTree",
           "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "l-yaml-view-container",
+          "title": "Package Explorer",
+          "icon": "resources/yaml.svg"
+        }
+      ]
+    },
+    "views": {
+      "l-yaml-view-container": [
+        {
+          "id": "package-dependencies",
+          "name": "Dependencies"
+        },
+        {
+          "id": "package-outline",
+          "name": "Outline"
         }
       ]
     }
@@ -40,10 +62,14 @@
     "lint": "tslint -p . --fix"
   },
   "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.21",
-    "tslint": "^5.8.0",
+    "@types/js-yaml": "^3.11.2",
+    "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
-    "@types/mocha": "^2.2.42"
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  },
+  "dependencies": {
+    "js-yaml": "^3.12.0"
   }
 }
