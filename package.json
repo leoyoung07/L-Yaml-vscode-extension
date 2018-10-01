@@ -35,20 +35,16 @@
       "activitybar": [
         {
           "id": "l-yaml-view-container",
-          "title": "Package Explorer",
-          "icon": "resources/yaml.svg"
+          "title": "L-Yaml",
+          "icon": "assets/yaml.svg"
         }
       ]
     },
     "views": {
       "l-yaml-view-container": [
         {
-          "id": "package-dependencies",
-          "name": "Dependencies"
-        },
-        {
-          "id": "package-outline",
-          "name": "Outline"
+          "id": "l-yaml-view-outline",
+          "name": "Out Line"
         }
       ]
     }

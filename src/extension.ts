@@ -3,6 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import yaml from 'js-yaml';
 import * as vscode from 'vscode';
+import TreeDataProvider from './TreeDataProvider';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -18,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
   const openTextBeside = async () => {
     if (vscode.window.activeTextEditor) {
       const text = vscode.window.activeTextEditor.document.getText();
+      vscode.window.registerTreeDataProvider('l-yaml-view-outline', new TreeDataProvider(context));
       const content = JSON.stringify(yaml.load(text));
       vscode.window.showTextDocument(
         await vscode.workspace.openTextDocument({
