@@ -13,13 +13,13 @@ export function activate(context: vscode.ExtensionContext) {
   // tslint:disable-next-line:no-console
   console.log('Congratulations, your extension "l-yaml" is now active!');
 
+  vscode.window.registerTreeDataProvider('l-yaml-view-outline', new TreeDataProvider(context));
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   const openTextBeside = async () => {
     if (vscode.window.activeTextEditor) {
       const text = vscode.window.activeTextEditor.document.getText();
-      vscode.window.registerTreeDataProvider('l-yaml-view-outline', new TreeDataProvider(context));
       const content = JSON.stringify(yaml.load(text));
       vscode.window.showTextDocument(
         await vscode.workspace.openTextDocument({

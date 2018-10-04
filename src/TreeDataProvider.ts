@@ -20,17 +20,8 @@ export default class TreeDataProvider implements vscode.TreeDataProvider<TreeDat
       new TreeDataItem(
         'Todo List',
         vscode.TreeItemCollapsibleState.None, {
-        command: 'extension.showTodoListView',
+        command: 'l-yaml.viewTree',
         title: 'Todo List'
-      }, {
-        dark: this.context.asAbsolutePath('assets/yaml.svg'),
-        light: this.context.asAbsolutePath('assets/yaml.svg')
-      }),
-      new TreeDataItem(
-        'RegExp Tool',
-        vscode.TreeItemCollapsibleState.None, {
-        command: 'extension.showRegExpToolView',
-        title: 'RegExp Tool'
       }, {
         dark: this.context.asAbsolutePath('assets/yaml.svg'),
         light: this.context.asAbsolutePath('assets/yaml.svg')
